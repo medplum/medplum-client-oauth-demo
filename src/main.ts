@@ -6,7 +6,6 @@ const medplum = new MedplumClient({
 
   // Replace this with your own client ID
   clientId: '8bb0d37a-bed4-47d2-b317-05192b1f651b',
-  authorizeUrl: 'https://api.medplum.com/oauth2/authorize?scope=openid',
 });
 
 // The code check
@@ -38,9 +37,8 @@ $('practitioners').addEventListener('click', () => {
   medplum.search('Practitioner').then(showOutput).catch(alert);
 });
 
-function showOutput(obj: any) {
+function showOutput(obj: any): void {
   $('output').innerHTML = JSON.stringify(obj, null, 2);
-  return obj;
 }
 
 function $(id: string): HTMLElement {
